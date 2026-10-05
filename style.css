@@ -1,0 +1,88 @@
+/* iCheck web pages (README D76). Same colours and fonts as the app (ios Theme.swift, D65/D74):
+   text >= 4.5:1, outlines >= 3:1, in light and dark. Fonts are served with the site (SIL OFL). */
+
+@font-face { font-family: "Atkinson"; src: url("fonts/AtkinsonHyperlegible-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Atkinson"; src: url("fonts/AtkinsonHyperlegible-Bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Newsreader"; src: url("fonts/Newsreader-Variable.ttf") format("truetype"); font-weight: 200 800; font-display: swap; }
+
+:root {
+  --ground: #F4F4F2; --surface: #FFFFFF; --ink: #0E1726; --ink2: #4A5363;
+  --primary: #0B2A5B; --on-primary: #FFFFFF; --border: #7A8394; --hairline: #D9DCE1;
+  --urgent-fill: #FFF1DC; --urgent-ink: #8A4700; --urgent-border: #E8B36A;
+  --mint: #CFE8E4; --tile-ink: #0E1726;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground: #16171B; --surface: #24262C; --ink: #EEF1F5; --ink2: #B4BDCA;
+    --primary: #8FB4F0; --on-primary: #0B1A33; --border: #737D8F; --hairline: #2E3540;
+    --urgent-fill: #3A2A12; --urgent-ink: #F5C27A; --urgent-border: #7A5520;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0 auto; max-width: 46rem; padding: 0 20px 48px;
+  background: var(--ground); color: var(--ink);
+  font: 1.1875rem/1.6 "Atkinson", system-ui, -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+}
+h1, h2 { font-family: "Newsreader", Georgia, "Songti TC", serif; font-weight: 600; line-height: 1.15; }
+h1 { font-size: clamp(2.2rem, 7vw, 3rem); margin: 0.6em 0 0.3em; }
+h2 { font-size: 1.75rem; margin: 1.6em 0 0.5em; }
+h3 { font-size: 1.1875rem; margin: 0 0 0.25em; }
+a { color: var(--primary); text-underline-offset: 3px; }
+a:focus-visible, summary:focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; border-radius: 6px; }
+p { margin: 0 0 0.9em; }
+
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 20px; top: 12px; background: var(--surface); padding: 8px 14px; border-radius: 10px; z-index: 1; }
+
+.top { display: flex; justify-content: space-between; align-items: center; padding: 18px 0 8px; }
+.brand { display: flex; align-items: center; gap: 8px; color: var(--ink); text-decoration: none;
+  font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: 1.5rem; }
+.mark { width: 28px; height: 28px; fill: none; stroke: var(--primary); stroke-width: 1.8;
+  stroke-linecap: round; stroke-linejoin: round; }
+.langs { display: flex; flex-wrap: wrap; gap: 8px; padding: 4px 0 10px; }
+.langs a { min-height: 44px; display: inline-flex; align-items: center; padding: 0 14px;
+  border: 1.5px solid var(--border); border-radius: 999px; text-decoration: none; color: var(--ink); }
+.langs a[aria-current] { background: var(--primary); border-color: var(--primary); color: var(--on-primary); font-weight: 700; }
+
+.nav { display: flex; flex-wrap: wrap; gap: 4px 20px; border-bottom: 1px solid var(--hairline); padding-bottom: 8px; }
+.nav a { min-height: 48px; display: inline-flex; align-items: center; text-decoration: none; color: var(--ink2); }
+.nav a[aria-current] { color: var(--ink); font-weight: 700; text-decoration: underline; text-decoration-thickness: 2px; }
+
+.lead { font-size: 1.3rem; color: var(--ink2); }
+.soon, .email { font-weight: 700; }
+.email { font-size: 1.3rem; overflow-wrap: anywhere; }
+.muted { color: var(--ink2); }
+.button { display: inline-flex; align-items: center; min-height: 60px; padding: 0 28px; border-radius: 999px;
+  background: var(--primary); color: var(--on-primary); font-weight: 700; text-decoration: none; }
+
+.cards { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.cards li, .stop, details, .legal table { background: var(--surface); border-radius: 22px; }
+.cards li { padding: 18px 20px; }
+.cards p { color: var(--ink2); margin: 0; }
+.stop { padding: 4px 22px 10px; margin-top: 2em; }
+.stop h2 { font-size: 1.4rem; }
+.plain { padding-left: 1.2em; }
+.plain li { margin-bottom: 0.5em; }
+
+.urgent { background: var(--urgent-fill); border: 2px solid var(--urgent-border); border-radius: 24px; padding: 4px 22px 8px; }
+.urgent h2 { color: var(--urgent-ink); margin-top: 0.8em; }
+.urgent .lead { color: var(--ink); font-weight: 700; }
+.urgent li { margin-bottom: 0.6em; }
+.urgent a { white-space: nowrap; font-weight: 700; margin-left: 4px; }
+
+details { margin-bottom: 10px; padding: 0 20px; }
+summary { min-height: 56px; display: flex; align-items: center; cursor: pointer; font-weight: 700; }
+details p { color: var(--ink2); }
+
+.legal h1 { font-size: clamp(2rem, 6vw, 2.6rem); }
+.legal h2 { font-size: 1.5rem; }
+.legal h3 { font-size: 1.15rem; margin-top: 1.2em; }
+.legal table { border-collapse: collapse; width: 100%; display: block; overflow-x: auto; font-size: 1rem; }
+.legal th, .legal td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--hairline); }
+.legal li { margin-bottom: 0.4em; }
+
+.foot { margin-top: 3em; padding-top: 16px; border-top: 1px solid var(--hairline); color: var(--ink2); font-size: 1rem; }
