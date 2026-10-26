@@ -86,3 +86,10 @@ details p { color: var(--ink2); }
 .legal li { margin-bottom: 0.4em; }
 
 .foot { margin-top: 3em; padding-top: 16px; border-top: 1px solid var(--hairline); color: var(--ink2); font-size: 1rem; }
+
+.shots { list-style: none; padding: 0; margin: 1.6em 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.shots img { display: block; width: 100%; height: auto; border-radius: 18px; border: 1px solid var(--hairline); }
+
+.store { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
+.qr { margin: 0; display: flex; align-items: center; gap: 12px; color: var(--ink2); font-size: 1rem; }
+.qr img { width: 112px; height: 112px; padding: 8px; background: #FFFFFF; border-radius: 14px; border: 1px solid var(--hairline); }
